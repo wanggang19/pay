@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hongao.pay.dao.PayRecordMapper" >
+
+  <!-- 根据id获取支付记录 -->
+  <select id="getPayRecordById" resultType="PayRecord">
+    select id,
+    	userId,
+    	partyId,
+    	orderNo,
+    	amt,
+    	payType,
+    	orderName,
+    	orderDetail,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	extProps
+    from ha_pay_record
+    where id=#{id}
+  </select>
+  
+  <!-- 根据订单编号获取支付记录 -->
+  <select id="getPayRecordByOrderNo" resultType="PayRecord">
+   	select id,
+    	userId,
+    	partyId,
+    	orderNo,
+    	amt,
+    	payType,
+    	orderName,
+    	orderDetail,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	extProps
+    from ha_pay_record
+    where orderNo=#{orderNo}
+  </select>
+  
+  <!-- 创建充值记录 -->
+  <insert id="addPayRecord" parameterType="PayRecord" keyProperty="id" useGeneratedKeys="true">
+    insert into ha_pay_record(
+    	userId,
+    	partyId,
+    	orderNo,
+    	amt,
+    	payType,
+    	orderName,
+    	orderDetail,
+    	status,
+    	crtTime,
+    	updTime,
+    	extProps
+    )
+    values(
+    	#{userId},
+    	#{partyId},
+    	#{orderNo},
+    	#{amt},
+    	#{payType},
+    	#{orderName},
+    	#{orderDetail},
+    	1,
+    	now(),
+    	null,
+    	#{extProps}
+    )
+  </insert>
+  
+  <!-- 更新支付记录状态 -->
+  <update id="updPayRecordStatus">
+  	update ha_pay_record
+  	set status = #{status},
+  		updTime = now()
+  	where id = #{id}
+  </update>
+  
+  <!-- 更新支付记录第三方响应数据 -->
+  <update id="updPayRecordRespData">
+  	update ha_pay_record
+  	set respData = #{respData},
+  		updTime = now()
+  	where id = #{id}
+  </update>
+  
+</mapper>

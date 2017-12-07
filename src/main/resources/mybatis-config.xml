@@ -4,7 +4,7 @@
 <configuration>
   <!-- 别名配置 -->
   <typeAliases>
- 
+ 	<typeAlias type="com.hongao.pay.model.PayRecord" alias="PayRecord"/>
   </typeAliases>
   
 </configuration>
