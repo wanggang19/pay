@@ -37,6 +37,7 @@ public class PayRecord {
 	
 	/**
 	 * 支付方式
+	 * @see com.hongao.consts.pay.PayTypes
 	 */
 	private String payType;
 	
