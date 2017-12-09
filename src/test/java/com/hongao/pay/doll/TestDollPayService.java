@@ -1,12 +1,12 @@
-package com.hongao.pay;
+package com.hongao.pay.doll;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hongao.consts.order.OrderTypes;
 import com.hongao.consts.party.PartyIds;
 import com.hongao.consts.pay.PayTypes;
+import com.hongao.consts.txn.TxnTypes;
 import com.hongao.parent.exception.HaBizException;
 import com.hongao.pay.dto.PayReq;
 import com.hongao.pay.dto.PayResp;
@@ -19,7 +19,7 @@ import com.hongao.utils.order.GenOrderNoUtil;
  *
  * @date 2017年12月7日 下午1:34:20
  */
-public class TestPayService extends ABaseTest{
+public class TestDollPayService extends HaDollPayBaseTest{
 	
 	@Autowired
 	private PayService payService;
@@ -32,7 +32,7 @@ public class TestPayService extends ABaseTest{
 		payReq.setNotifyUrl("localhost:8080/notify.shtml");
 		payReq.setOrderDetail("test");
 		payReq.setOrderName("test");
-		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(OrderTypes.C));
+		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(TxnTypes.C));
 		payReq.setPayType(PayTypes.ALIPAY);
 		payReq.setUserId(1L);
 		payReq.setPartyId(PartyIds.HA);
@@ -48,7 +48,7 @@ public class TestPayService extends ABaseTest{
 		payReq.setNotifyUrl("localhost:8080/notify.shtml");
 		payReq.setOrderDetail("test");
 		payReq.setOrderName("test");
-		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(OrderTypes.C));
+		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(TxnTypes.C));
 		payReq.setPayType(PayTypes.WXPAY);
 		payReq.setUserId(1L);
 		payReq.setPartyId(PartyIds.HA);
