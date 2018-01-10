@@ -64,8 +64,12 @@ public class PayServiceImpl implements PayService {
 
 	@Override
 	public PayRecord getPayRecordByOrderNo(String orderNo) {
-		
-		return null;
+		return payRecordMapper.getPayRecordByOrderNo(orderNo);
+	}
+
+	@Override
+	public void updPayRecordStatusByOrderNo(String orderNo, int status) throws HaBizException {
+		payRecordMapper.updPayRecordStatusByOrderNo(orderNo,status);
 	}
 
 }

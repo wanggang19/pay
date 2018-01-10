@@ -30,6 +30,14 @@ public interface PayService {
 	void updPayRecordStatus(Long id, int status) throws HaBizException;
 	
 	/**
+	 * 更新支付记录状态
+	 * @param id
+	 * @param status
+	 * @throws HaBizException
+	 */
+	void updPayRecordStatusByOrderNo(String orderNo, int status) throws HaBizException;
+	
+	/**
 	 * 根据主键获取支付记录
 	 * @param id
 	 * @return

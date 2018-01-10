@@ -10,12 +10,12 @@ public class IPayConfig {
 	/**
 	 * 现在支付-微信支付appid
 	 */
-	public static final String APP_ID = "1470277254377769";
+	public static final String APP_ID = "151520880292683";
 	
 	/**
 	 * 现在支付-微信支付MD5key
 	 */
-	public static final String MD5_KEY = "Bo2ogk4XU2g1SYaYv0m9S34SckhxkDUz";
+	public static final String MD5_KEY = "8jbwfIHSMbDN12a4lrUcGydrdzax6hfQ";
 	
 	/**
 	 * 现在支付请求URL

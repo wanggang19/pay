@@ -48,7 +48,8 @@ public class WxPayProcessor extends PayProcessor{
 		String mhtOrderType = IPayConsts.ORDER_TYPE;
 		String mhtCurrencyType = IPayConsts.CURRENCY_TYPE;
 		//String mhtOrderAmt = "1";
-		String mhtOrderAmt = String.valueOf((int)(payReq.getAmt() * VRates.RATE));
+		//String mhtOrderAmt = String.valueOf(payReq.getAmt()*100);
+		String mhtOrderAmt = String.valueOf(1);
 		String mhtOrderDetail = payReq.getOrderDetail();
 		FastDateFormat dateFormat = FastDateFormat.getInstance("yyyyMMddHHmmss");
 		String mhtOrderStartTime = dateFormat.format(new Date());

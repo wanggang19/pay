@@ -28,6 +28,11 @@ public class IPayConsts {
 	public static final String DEVICE_TYPE = "0601";
 	
 	/**
+	 * 阿里支付渠道
+	 */
+	public static final String ALI_CHANNEL = "12";
+	
+	/**
 	 * 微信支付渠道
 	 */
 	public static final String WECHAT_CHANNEL = "13";

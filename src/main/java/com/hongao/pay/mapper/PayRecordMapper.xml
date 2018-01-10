@@ -79,6 +79,14 @@
   	where id = #{id}
   </update>
   
+  <!-- 更新支付记录状态 -->
+  <update id="updPayRecordStatusByOrderNo">
+  	update ha_pay_record
+  	set status = #{status},
+  		updTime = now()
+  	where orderNo = #{orderNo}
+  </update>
+  
   <!-- 更新支付记录第三方响应数据 -->
   <update id="updPayRecordRespData">
   	update ha_pay_record
