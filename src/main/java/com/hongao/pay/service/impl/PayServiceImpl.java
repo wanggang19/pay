@@ -4,6 +4,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.hongao.parent.exception.HaBizException;
 import com.hongao.pay.consts.ErrorCodes;
@@ -14,7 +15,7 @@ import com.hongao.pay.model.PayRecord;
 import com.hongao.pay.processor.PayProcessor;
 import com.hongao.pay.service.PayService;
 import com.hongao.utils.bean.BeanUtilsExt;
-
+@Service
 public class PayServiceImpl implements PayService {
 	
 	private final Logger logger = LoggerFactory.getLogger(getClass());
