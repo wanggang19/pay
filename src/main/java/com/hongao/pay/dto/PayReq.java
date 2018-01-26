@@ -63,7 +63,12 @@ public class PayReq {
 	 */
 	@NotNull
 	private String orderDetail;
-
+	
+	/**
+	 * 登陆微信号openid
+	 */
+	private String openid;
+	
 	public String getOrderNo() {
 		return orderNo;
 	}
@@ -135,5 +140,11 @@ public class PayReq {
 	public void setPartyId(String partyId) {
 		this.partyId = partyId;
 	}
-	
+	public String getOpenid() {
+		return openid;
+	}
+
+	public void setOpenid(String openid) {
+		this.openid = openid;
+	}
 }
