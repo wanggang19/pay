@@ -1,9 +1,7 @@
 package com.hongao.pay.service.impl;
 
 import java.util.List;
-
 import org.springframework.transaction.annotation.Transactional;
-
 import com.hongao.data.cond.QueryCond;
 import com.hongao.parent.exception.HaBizException;
 import com.hongao.pay.cond.QueryWithdrawRecordCond;
@@ -35,6 +33,11 @@ public class WithdrawServiceImpl implements WithdrawService {
 	@Override
 	public WithdrawResp withdraw(AuditWithdrawReq auditWithdrawReq) throws HaBizException {
 		return null;
+	}
+
+	@Override
+	public void markWxFlag(String orderNo, int status) throws HaBizException {
+		
 	}
 
 }

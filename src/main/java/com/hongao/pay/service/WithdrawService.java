@@ -40,4 +40,11 @@ public interface WithdrawService {
 	 * @throws HaBizException
 	 */
 	WithdrawResp withdraw(AuditWithdrawReq auditWithdrawReq) throws HaBizException;
+	
+	/**
+	 * 标记微信线下付款标志
+	 * @param orderNo
+	 * @throws HaBizException
+	 */
+	void markWxFlag(String orderNo, int status) throws HaBizException;
 }
