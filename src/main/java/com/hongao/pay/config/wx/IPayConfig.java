@@ -25,6 +25,18 @@ public class IPayConfig {
 	//test
 	//public static final String IPAY_URL = "https://p.ipaynow.cn";
 	
+	/**
+	 * 现在支付-微信公众号支付appid --如意棋牌
+	 */
+	public static final String MP_APP_ID = "151643360250723";
+	
+	/**
+	 * 现在支付-微信公众号支付MD5key --如意棋牌
+	 */
+	public static final String MP_MD5_KEY = "ArM59cgDlNSt6wCnZdNPVVHIyq3Mv60J";
+	
+	/** 公众号appid*/
+	public static final String MP_APPID = "wxca9e7cea08652095";
 	private IPayConfig(){
 		
 	}

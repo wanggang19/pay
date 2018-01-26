@@ -23,6 +23,6 @@
 	</bean>
 	
 	<bean id="aliPayProcessor" class="com.hongao.pay.processor.impl.AliPayProcessor"></bean>
-	<bean id="wxPayProcessor" class="com.hongao.pay.processor.impl.WxPayProcessor"></bean>
+	<bean id="wxPayProcessor" class="com.hongao.pay.processor.impl.WxPayMpProcessor"></bean>
     
 </beans>
