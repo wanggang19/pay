@@ -1,6 +1,8 @@
 package com.hongao.pay.service.impl;
 
 import java.util.List;
+
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.hongao.data.cond.QueryCond;
 import com.hongao.parent.exception.HaBizException;
@@ -17,6 +19,7 @@ import com.hongao.pay.service.WithdrawService;
  *
  * @date 2018年1月26日 上午9:55:49
  */
+@Service
 public class WithdrawServiceImpl implements WithdrawService {
 
 	@Override
