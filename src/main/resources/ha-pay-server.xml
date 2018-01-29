@@ -18,11 +18,13 @@
 			<map>
 				<entry key="01" value-ref="aliPayProcessor"></entry>
 				<entry key="02" value-ref="wxPayProcessor"></entry>
+				<entry key="03" value-ref="WxPayMpProcessor"></entry>
 			</map>
 		</property>
 	</bean>
 	
 	<bean id="aliPayProcessor" class="com.hongao.pay.processor.impl.AliPayProcessor"></bean>
-	<bean id="wxPayProcessor" class="com.hongao.pay.processor.impl.WxPayMpProcessor"></bean>
+	<bean id="wxPayProcessor" class="com.hongao.pay.processor.impl.WxPayProcessor"></bean>
+	<bean id="WxPayMpProcessor" class="com.hongao.pay.processor.impl.WxPayMpProcessor"></bean>
     
 </beans>
