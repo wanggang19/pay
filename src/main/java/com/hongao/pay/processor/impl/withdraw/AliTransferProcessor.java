@@ -46,7 +46,7 @@ public class AliTransferProcessor extends WithdrawProcessor{
 		//收款方实名
 		params.put("payee_real_name", withdrawRecord.getAcctName());
 		//转账金额(提现记录为支出 记录为负值)
-		params.put("amount", String.valueOf(BigDecimal.ZERO.subtract(withdrawRecord.getAcAmt())));
+		params.put("amount", String.valueOf(withdrawRecord.getAcAmt().abs()));
 		//付款方名称
 		params.put("payer_show_name", AliPayConfig.PAYER_NAME);
 		params.put("remark", AliPayConfig.REMARK);
