@@ -55,7 +55,7 @@ public class AliTransferProcessor extends WithdrawProcessor{
 		try {
 			AlipayFundTransToaccountTransferResponse resp = alipayClient.execute(alipayFundTransToaccountTransferRequest);
 			if(resp.getCode().equals(AliPayConfig.TRANSFER_SUCCESS)){
-				logger.info("ali transfer success, amt={}, acct={}!", withdrawRecord.getAcAmt(), withdrawRecord.getAcct());
+				logger.info("ali transfer success, amt={}, acct={}!", withdrawRecord.getAcAmt().abs(), withdrawRecord.getAcct());
 				withdrawResp.setSuccess(Boolean.TRUE);
 			}else{
 				logger.error("ali transfer failed, code={}, msg={}!", resp.getCode(), resp.getMsg());

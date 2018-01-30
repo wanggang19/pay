@@ -111,7 +111,7 @@ public class WithdrawServiceImpl implements WithdrawService {
 				logger.info("reject failed, id={}.", withdrawRecord.getId());
 				withdrawResp.setSuccess(Boolean.FALSE);
 			}
-		}else{
+		}else if(auditWithdrawReq.getStatus() == WithdrawStatuses.PASS){
 			//目前仅支持支付宝打款
 			WithdrawProcessor withdrawProcessor = withdrawProcessors.get(String.valueOf(withdrawRecord.getAcctType()));
 			if(withdrawProcessor == null){
