@@ -48,4 +48,11 @@ public interface WithdrawService {
 	 * @throws HaBizException
 	 */
 	void markFlag(OfflineMarkReq offlineMarkReq) throws HaBizException;
+	
+	/**
+	 * 根据主键查询提现记录
+	 * @param id
+	 * @return
+	 */
+	WithdrawRecord getById(Long id);
 }

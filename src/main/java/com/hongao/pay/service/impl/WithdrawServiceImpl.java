@@ -150,4 +150,9 @@ public class WithdrawServiceImpl implements WithdrawService {
 		withdrawRecordMapper.updWithdrawRecord(withdrawRecord);
 	}
 
+	@Override
+	public WithdrawRecord getById(Long id) {
+		return withdrawRecordMapper.getById(id);
+	}
+
 }
