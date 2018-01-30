@@ -96,7 +96,7 @@ public class WithdrawServiceImpl implements WithdrawService {
 			logger.error("not found withdraw record, id={}!", auditWithdrawReq.getId());
 			throw new HaBizException(ErrorCodes.WITHDRAW_RECORD_NOT_FOUND, "not found withdraw record!");
 		}
-		if(WithdrawStatuses.isPayStatus(withdrawRecord.getStatus())){
+		if(!WithdrawStatuses.isPayStatus(withdrawRecord.getStatus())){
 			logger.error("withdraw record status:{} not support,id={}.", withdrawRecord.getStatus(), withdrawRecord.getId());
 			throw new HaBizException(ErrorCodes.WITHDRAW_RECORD_STATUS_NOT_SUPPORT, "withdraw record status not support!");
 		}
