@@ -17,6 +17,21 @@ public class ErrorCodes {
 	 */
 	public static final String NOT_SUPPORTED_PAY_TYPE = "pay.001";
 	
+	/**
+	 * 提现记录未找到
+	 */
+	public static final String WITHDRAW_RECORD_NOT_FOUND = "pay.002";
+	
+	/**
+	 * 提现状态异常
+	 */
+	public static final String WITHDRAW_RECORD_STATUS_NOT_SUPPORT = "pay.003";
+	
+	/**
+	 * 不支持的标记类型
+	 */
+	public static final String NOT_SUPPORT_MARK_TYPE = "pay.004";
+	
 	private ErrorCodes(){
 		
 	}

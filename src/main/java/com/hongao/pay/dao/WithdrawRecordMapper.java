@@ -2,7 +2,7 @@ package com.hongao.pay.dao;
 
 import java.util.List;
 
-import com.hongao.data.cond.QueryCond;
+import org.apache.ibatis.annotations.Param;
 import com.hongao.pay.cond.QueryWithdrawRecordCond;
 import com.hongao.pay.model.WithdrawRecord;
 
@@ -22,19 +22,39 @@ public interface WithdrawRecordMapper {
 	int addWithdrawRecord(WithdrawRecord withdrawRecord);
 	
 	/**
-	 * 修改提现记录状态
-	 * @param id
-	 * @param status
-	 * @return
-	 */
-	int updWithdrawRecord(Long id, int status);
-	
-	/**
 	 * 查询提现记录
 	 * @param cond
 	 * @param offset
 	 * @param limit
 	 * @return
 	 */
-	List<WithdrawRecord> queryWithdrawRecordList(QueryWithdrawRecordCond cond, int offset, int limit);
+	List<WithdrawRecord> queryWithdrawRecordList(@Param(value="cond") QueryWithdrawRecordCond cond, @Param(value="offset") int offset, @Param(value="limit") int limit);
+
+	/**
+	 * 根据主键获取提现记录
+	 * @param id
+	 * @return 
+	 */
+	WithdrawRecord getById(Long id);
+	
+	/**
+	 * 修改提现记录(状态 备注)
+	 * @param withdrawRecord
+	 * @return
+	 */
+	int updWithdrawRecord(WithdrawRecord withdrawRecord);
+
+	/**
+	 * 根据主键锁定记录
+	 * @param id
+	 * @return
+	 */
+	WithdrawRecord getByIdForUpdate(Long id);
+
+	/**
+	 * 根据订单编号获取
+	 * @param orderNo
+	 * @return
+	 */
+	WithdrawRecord getByOrderNoForUpdate(String orderNo);
 }

@@ -6,6 +6,7 @@ import com.hongao.data.cond.QueryCond;
 import com.hongao.parent.exception.HaBizException;
 import com.hongao.pay.cond.QueryWithdrawRecordCond;
 import com.hongao.pay.dto.AuditWithdrawReq;
+import com.hongao.pay.dto.OfflineMarkReq;
 import com.hongao.pay.dto.WithdrawReq;
 import com.hongao.pay.dto.WithdrawResp;
 import com.hongao.pay.model.WithdrawRecord;
@@ -42,9 +43,9 @@ public interface WithdrawService {
 	WithdrawResp withdraw(AuditWithdrawReq auditWithdrawReq) throws HaBizException;
 	
 	/**
-	 * 标记微信线下付款标志
+	 * 标记线下付款标志(目前微信)
 	 * @param orderNo
 	 * @throws HaBizException
 	 */
-	void markWxFlag(String orderNo, int status) throws HaBizException;
+	void markFlag(OfflineMarkReq offlineMarkReq) throws HaBizException;
 }

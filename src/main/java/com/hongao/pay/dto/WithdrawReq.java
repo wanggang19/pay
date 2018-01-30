@@ -2,6 +2,8 @@ package com.hongao.pay.dto;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * 提现请求
  * @author iTeller_zc
@@ -12,42 +14,44 @@ public class WithdrawReq {
 	/**
 	 * 商户编号
 	 */
+	@NotNull
 	private String partyId;
 	
 	/**
 	 * 订单编号
 	 */
+	@NotNull
 	private String orderNo;
 	
 	/**
 	 * 提现金额
 	 */
+	@NotNull
 	private BigDecimal amt;
 	
 	/**
 	 * 账号类型
 	 */
+	@NotNull
 	private int acctType;
 	
 	/**
 	 * 提现账户
 	 */
+	@NotNull
 	private String acct;
 	
 	/**
 	 * 账号名称
 	 */
+	@NotNull
 	private String acctName;
 	
 	/**
 	 * 口令
 	 */
+	@NotNull
 	private String token;
-	
-	/**
-	 * 提现密码
-	 */
-	private String withdrawPwd;
 
 	public String getPartyId() {
 		return partyId;
@@ -104,13 +108,4 @@ public class WithdrawReq {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
-	public String getWithdrawPwd() {
-		return withdrawPwd;
-	}
-
-	public void setWithdrawPwd(String withdrawPwd) {
-		this.withdrawPwd = withdrawPwd;
-	}
-
 }

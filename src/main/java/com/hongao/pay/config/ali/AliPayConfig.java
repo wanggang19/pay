@@ -40,6 +40,11 @@ public class AliPayConfig {
 	public static String CHARSET = "UTF-8";
 
 	/**
+	 * 分润提现备注
+	 */
+	public static String REMARK = "分润提现";
+
+	/**
 	 * appid
 	 */
 	public static final String APP_ID = "2017121100575544";
@@ -63,6 +68,16 @@ public class AliPayConfig {
 	 * 签约产品代码
 	 */
 	public static final String PROD_CODE = "QUICK_WAP_WAY";
+	
+	/**
+	 * 付款账号
+	 */
+	public static final String PAYER_NAME = "江苏鸿奥电子竞技发展有限公司";
+
+	/**
+	 * 转账成功响应码
+	 */
+	public static final String TRANSFER_SUCCESS = "10000";
 	
 	private AliPayConfig(){
 		

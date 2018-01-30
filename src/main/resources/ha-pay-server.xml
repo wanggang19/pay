@@ -18,13 +18,25 @@
 			<map>
 				<entry key="01" value-ref="aliPayProcessor"></entry>
 				<entry key="02" value-ref="wxPayProcessor"></entry>
-				<entry key="03" value-ref="WxPayMpProcessor"></entry>
+				<entry key="03" value-ref="wxPayMpProcessor"></entry>
 			</map>
 		</property>
 	</bean>
 	
 	<bean id="aliPayProcessor" class="com.hongao.pay.processor.impl.AliPayProcessor"></bean>
 	<bean id="wxPayProcessor" class="com.hongao.pay.processor.impl.WxPayProcessor"></bean>
-	<bean id="WxPayMpProcessor" class="com.hongao.pay.processor.impl.WxPayMpProcessor"></bean>
+	<bean id="wxPayMpProcessor" class="com.hongao.pay.processor.impl.WxPayMpProcessor"></bean>
     
+    <!-- 提现转账服务 -->
+    <bean id="withdrawService" class="com.hongao.pay.service.impl.WithdrawServiceImpl">
+		<property name="withdrawProcessors">
+			<map>
+				<entry key="1" value-ref="aliTransferProcessor"></entry>
+				<entry key="2" value-ref="wxTransferProcessor"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="aliTransferProcessor" class="com.hongao.pay.processor.impl.withdraw.AliTransferProcessor"></bean>
+	<bean id="wxTransferProcessor" class="com.hongao.pay.processor.impl.withdraw.WxTransferProcessor"></bean>
 </beans>

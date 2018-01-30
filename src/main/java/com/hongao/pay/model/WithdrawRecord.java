@@ -22,7 +22,7 @@ public class WithdrawRecord {
 	private String orderNo;
 	
 	/**
-	 * uid
+	 * partyId
 	 */
 	private String partyId;
 	
@@ -80,6 +80,11 @@ public class WithdrawRecord {
 	 * 第三方响应数据
 	 */
 	private String respData;
+	
+	/**
+	 * 审核备注
+	 */
+	private String memo;
 
 	public Long getId() {
 		return id;
@@ -193,4 +198,12 @@ public class WithdrawRecord {
 		this.respData = respData;
 	}
 
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+	
 }

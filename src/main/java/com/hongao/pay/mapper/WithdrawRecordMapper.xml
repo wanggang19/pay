@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hongao.pay.dao.WithdrawRecordMapper" >
+
+  <!-- 根据id获取提现记录 -->
+  <select id="getById" resultType="WithdrawRecord">
+    select id,
+    	partyId,
+    	orderNo,
+    	acctName,
+    	acct,
+    	acctType,
+    	amt,
+    	feeRate,
+    	srvFee,
+    	acAmt,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	memo
+    from ha_withdraw_record
+    where id=#{id}
+  </select>
+  
+  <!-- 根据id获取提现记录 -->
+  <select id="getByIdForUpdate" resultType="WithdrawRecord">
+    select id,
+    	partyId,
+    	orderNo,
+    	acctName,
+    	acct,
+    	acctType,
+    	amt,
+    	feeRate,
+    	srvFee,
+    	acAmt,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	memo
+    from ha_withdraw_record
+    where id=#{id}
+    for update
+  </select>
+  
+  <!-- 根据订单编号获取提现记录 -->
+  <select id="getByOrderNoForUpdate" resultType="WithdrawRecord">
+   	 select id,
+    	partyId,
+    	orderNo,
+    	acctName,
+    	acct,
+    	acctType,
+    	amt,
+    	feeRate,
+    	srvFee,
+    	acAmt,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	memo
+    from ha_withdraw_record
+    where orderNo=#{orderNo}
+    for update
+  </select>
+  
+  <!-- 创建提现记录 -->
+  <insert id="addWithdrawRecord" parameterType="WithdrawRecord" keyProperty="id" useGeneratedKeys="true">
+    insert into ha_withdraw_record(
+    	partyId,
+    	orderNo,
+    	acctName,
+    	acct,
+    	acctType,
+    	amt,
+    	feeRate,
+    	srvFee,
+    	acAmt,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	memo
+    )
+    values(
+    	#{partyId},
+    	#{orderNo},
+    	#{acctName},
+    	#{acct},
+    	#{acctType},
+    	#{amt},
+    	#{feeRate},
+    	#{srvFee},
+    	#{acAmt},
+    	#{status},
+    	now(),
+    	null,
+    	#{respData},
+    	#{memo}
+    )
+  </insert>
+  
+  <!-- 更新支付记录状态 -->
+  <update id="updWithdrawRecord" parameterType="WithdrawRecord">
+  	update ha_withdraw_record
+  	set status = #{status},
+  		memo = #{memo},
+  		respData = #{respData},
+  		updTime = now()
+  	where id = #{id}
+  </update>
+  
+  <!--查询提现记录 -->
+  <select id="queryWithdrawRecordList">
+ 	select id,
+    	partyId,
+    	orderNo,
+    	acctName,
+    	acct,
+    	acctType,
+    	amt,
+    	feeRate,
+    	srvFee,
+    	acAmt,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	memo
+    from ha_withdraw_record
+    where 1=1
+    <if test="cond.partyId != null and cond.partyId!=''">
+    	and partyId=#{cond.partyId}
+    </if>
+    <if test="cond.acctType != null and cond.acctType!=''">
+    	and acctType=#{cond.acctType}
+    </if>
+    <if test="cond.acctName != null and cond.acctName!=''">
+    	and acctName=#{cond.acctName}
+    </if>
+    <if test="cond.acct != null and cond.acct!=''">
+    	and acct=#{cond.acct}
+    </if>
+    <if test="cond.status != null and cond.status!=0">
+    	and status=#{cond.status}
+    </if>
+    <if test="cond.startDate != null">
+    	and startDate &gt;= #{cond.startDate}
+    </if>
+    <if test="cond.endDate != null">
+    	and endDate &lt;= #{cond.endDate}
+    </if>
+    limit #{offset},#{limit}
+  </select>
+</mapper>

@@ -3,13 +3,12 @@ package com.hongao.pay.dto;
 import javax.validation.constraints.NotNull;
 
 /**
- * 审核提现请求
+ * 线下标记请求
  * @author iTeller_zc
  *
- * @date 2018年1月26日 上午10:11:23
+ * @date 2018年1月30日 上午10:21:56
  */
-public class AuditWithdrawReq {
-	
+public class OfflineMarkReq {
 	/**
 	 * 主键
 	 */
@@ -17,13 +16,7 @@ public class AuditWithdrawReq {
 	private Long id;
 	
 	/**
-	 * 状态
-	 */
-	@NotNull
-	private int status;
-	
-	/**
-	 * 审核意见
+	 * 标记备注
 	 */
 	private String memo;
 
@@ -33,14 +26,6 @@ public class AuditWithdrawReq {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
 	}
 
 	public String getMemo() {
