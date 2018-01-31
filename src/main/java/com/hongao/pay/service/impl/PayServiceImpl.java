@@ -4,8 +4,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.alibaba.fastjson.JSONObject;
 import com.hongao.parent.exception.HaBizException;
 import com.hongao.pay.consts.ErrorCodes;
 import com.hongao.pay.dao.PayRecordMapper;
@@ -15,7 +15,13 @@ import com.hongao.pay.model.PayRecord;
 import com.hongao.pay.processor.PayProcessor;
 import com.hongao.pay.service.PayService;
 import com.hongao.utils.bean.BeanUtilsExt;
-@Service
+
+/**
+ * 支付服务实现
+ * @author iTeller_zc
+ *
+ * @date 2018年1月31日 下午1:22:30
+ */
 public class PayServiceImpl implements PayService {
 	
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -32,7 +38,7 @@ public class PayServiceImpl implements PayService {
 	@Override
 	@Transactional
 	public PayResp pay(PayReq payReq) throws HaBizException {
-		logger.info("pay req:{} .", payReq);
+		logger.info("pay req:{} .", JSONObject.toJSONString(payReq));
 		PayProcessor payProcessor = payProcessors.get(payReq.getPayType());
 		if(payProcessor == null){
 			logger.error("not supported pay type={}!", payReq.getPayType());
@@ -55,12 +61,12 @@ public class PayServiceImpl implements PayService {
 
 	@Override
 	public void updPayRecordStatus(Long id, int status) throws HaBizException {
+		payRecordMapper.updPayRecordStatus(id, status);
 	}
 
 	@Override
 	public PayRecord getPayRecordById(Long id) {
-	
-		return null;
+		return payRecordMapper.getPayRecordById(id);
 	}
 
 	@Override
