@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @date 2017年12月7日 下午1:33:29
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:ha-pay-test.xml"})
+@ContextConfiguration(locations={"classpath:ha-game-pay-test.xml"})
 public abstract class HaGamePayBaseTest {
 
 }
