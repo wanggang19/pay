@@ -1,6 +1,8 @@
 package com.hongao.pay.service;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import com.hongao.data.cond.QueryCond;
 import com.hongao.parent.exception.HaBizException;
@@ -55,4 +57,18 @@ public interface WithdrawService {
 	 * @return
 	 */
 	WithdrawRecord getById(Long id);
+
+	/**  
+	* 查询代理提现记录  
+	* @param paramMap
+	* @return 
+	*/  
+	List<WithdrawRecord> queryAgentWithdrawRecordList(Map<String, Object> paramMap);
+
+	/**  
+	* 查询代理提现记录总金额  
+	* @param paramMap
+	* @return 
+	*/  
+	BigDecimal queryAgentWithdrawRecordListNum(Map<String, Object> paramMap);
 }

@@ -1,6 +1,8 @@
 package com.hongao.pay.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import com.hongao.pay.cond.QueryWithdrawRecordCond;
@@ -57,4 +59,18 @@ public interface WithdrawRecordMapper {
 	 * @return
 	 */
 	WithdrawRecord getByOrderNoForUpdate(String orderNo);
+
+	/**  
+	* 查询代练提现记录 
+	* @param paramMap
+	* @return 
+	*/  
+	List<WithdrawRecord> queryAgentWithdrawRecordList(Map<String, Object> paramMap);
+
+	/**  
+	* 查询代理提现记录总金额
+	* @param paramMap
+	* @return 
+	*/  
+	BigDecimal queryAgentWithdrawRecordListNum(Map<String, Object> paramMap);
 }
