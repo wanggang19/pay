@@ -177,8 +177,8 @@
     from ha_withdraw_record hwr 
     where hwr.partyId = #{partyId}
     <if test="timePeriod == 1 || timePeriod == 3">
-		AND hwr.crtTime &lt;= #{startTime}
-		AND hwr.crtTime &gt; #{endTime}
+		AND hwr.crtTime &gt;= #{startTime}
+		AND hwr.crtTime &lt; #{endTime}
 	</if>
 	order by ${sortField} ${sortDirection} , crtTime DESC
 	limit #{begin},#{end}
@@ -190,8 +190,8 @@
     from ha_withdraw_record hwr 
     where hwr.partyId = #{partyId}
     <if test="timePeriod == 1 || timePeriod == 3">
-		AND hwr.crtTime &lt;= #{startTime}
-		AND hwr.crtTime &gt; #{endTime}
+		AND hwr.crtTime &gt;= #{startTime}
+		AND hwr.crtTime &lt; #{endTime}
 	</if>
 	order by ${sortField} ${sortDirection} , crtTime DESC
 	limit #{begin},#{end}
