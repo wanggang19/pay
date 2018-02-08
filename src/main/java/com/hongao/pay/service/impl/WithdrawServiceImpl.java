@@ -155,4 +155,26 @@ public class WithdrawServiceImpl implements WithdrawService {
 		return withdrawRecordMapper.getById(id);
 	}
 
+	/**
+	 * 查询代练提现记录
+	 * @param paramMap
+	 * @return 
+	 * @see com.hongao.pay.service.WithdrawService#queryAgentWithdrawRecordList(java.util.Map) 
+	 */ 
+	@Override
+	public List<WithdrawRecord> queryAgentWithdrawRecordList(Map<String, Object> paramMap) {
+		return withdrawRecordMapper.queryAgentWithdrawRecordList(paramMap);
+	}
+
+	/**
+	 * 查询代理提现记录总金额  
+	 * @param paramMap
+	 * @return 
+	 * @see com.hongao.pay.service.WithdrawService#queryAgentWithdrawRecordListNum(java.util.Map) 
+	 */ 
+	@Override
+	public BigDecimal queryAgentWithdrawRecordListNum(Map<String, Object> paramMap) {
+		return withdrawRecordMapper.queryAgentWithdrawRecordListNum(paramMap);
+	}
+
 }

@@ -156,4 +156,44 @@
     </if>
     limit #{offset},#{limit}
   </select>
+  
+  <!--查询代理体现记录 -->
+  <select id="queryAgentWithdrawRecordList" parameterType="java.util.Map"  resultType="WithdrawRecord">
+ 	select id,
+    	partyId,
+    	orderNo,
+    	acctName,
+    	acct,
+    	acctType,
+    	amt,
+    	feeRate,
+    	srvFee,
+    	acAmt,
+    	status,
+    	crtTime,
+    	updTime,
+    	respData,
+    	memo
+    from ha_withdraw_record hwr 
+    where hwr.partyId = #{partyId}
+    <if test="timePeriod == 1 || timePeriod == 3">
+		AND hwr.crtTime &lt;= #{startTime}
+		AND hwr.crtTime &gt; #{endTime}
+	</if>
+	order by ${sortField} ${sortDirection} , crtTime DESC
+	limit #{begin},#{end}
+  </select>
+  
+  <!--查询代理体现记录 -->
+  <select id="queryAgentWithdrawRecordListNum" parameterType="java.util.Map"  resultType="DECIMAL">
+ 	select IFNULL(sum(IFNULL(hwr.amt,0)),0)
+    from ha_withdraw_record hwr 
+    where hwr.partyId = #{partyId}
+    <if test="timePeriod == 1 || timePeriod == 3">
+		AND hwr.crtTime &lt;= #{startTime}
+		AND hwr.crtTime &gt; #{endTime}
+	</if>
+	order by ${sortField} ${sortDirection} , crtTime DESC
+	limit #{begin},#{end}
+  </select>
 </mapper>
