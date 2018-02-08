@@ -32,7 +32,7 @@ public class TestGamePayService extends HaGamePayBaseTest{
 		payReq.setNotifyUrl("localhost:8080/notify.shtml");
 		payReq.setOrderDetail("test");
 		payReq.setOrderName("test");
-		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(TxnTypes.C));
+		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(TxnTypes.P));
 		payReq.setPayType(PayTypes.ALIPAY);
 		payReq.setUserId(1L);
 		payReq.setPartyId(PartyIds.HA);
@@ -48,10 +48,28 @@ public class TestGamePayService extends HaGamePayBaseTest{
 		payReq.setNotifyUrl("localhost:8080/notify.shtml");
 		payReq.setOrderDetail("test");
 		payReq.setOrderName("test");
-		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(TxnTypes.C));
+		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(TxnTypes.P));
 		payReq.setPayType(PayTypes.WXPAY);
 		payReq.setUserId(1L);
 		payReq.setPartyId(PartyIds.HA);
+		PayResp payResp = payService.pay(payReq);
+		System.out.println(JSONObject.toJSONString(payResp));
+	}
+	
+	
+	@Test
+	public void testWxPubPay() throws HaBizException{
+		PayReq payReq = new PayReq();
+		payReq.setAmt(1f);
+		payReq.setFrontUrl("localhost:8080/front.shtml");
+		payReq.setNotifyUrl("localhost:8080/notify.shtml");
+		payReq.setOrderDetail("test");
+		payReq.setOrderName("test");
+		payReq.setOrderNo(GenOrderNoUtil.genOrderNo(TxnTypes.P));
+		payReq.setPayType(PayTypes.WXPUB);
+		payReq.setUserId(1L);
+		payReq.setPartyId(PartyIds.HA);
+		payReq.setOpenid("oWOeK0njs7kc3wL8esHviYRQvxas");
 		PayResp payResp = payService.pay(payReq);
 		System.out.println(JSONObject.toJSONString(payResp));
 	}

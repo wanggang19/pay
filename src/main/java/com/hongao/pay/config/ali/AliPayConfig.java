@@ -12,7 +12,7 @@ public class AliPayConfig {
 	/**
 	 * 合作身份者ID，以2088开头由16位纯数字组成的字符串
 	 */
-	public static final String PARTNER = "2088221986063391";
+	public static final String PARTNER = "2088921064418986";
 
 	/**
 	 * 收款支付宝账号
