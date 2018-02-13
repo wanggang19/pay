@@ -6,6 +6,9 @@
   <typeAliases>
  	<typeAlias type="com.hongao.pay.model.PayRecord" alias="PayRecord"/>
   	<typeAlias type="com.hongao.pay.model.WithdrawRecord" alias="WithdrawRecord"/>
+  	<typeAlias type="com.hongao.pay.model.WithdrawRecord" alias="WithdrawRecord"/>
+  	<typeAlias type="com.hongao.pay.dto.WithdrawAuditReq" alias="WithdrawAuditReq"/>
+  	<typeAlias type="com.hongao.pay.dto.WithdrawAuditResp" alias="WithdrawAuditResp"/>
   </typeAliases>
   
 </configuration>

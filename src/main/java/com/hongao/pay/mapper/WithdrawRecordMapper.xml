@@ -196,4 +196,20 @@
 	order by ${sortField} ${sortDirection} , crtTime DESC
 	limit #{begin},#{end}
   </select>
+  
+  <!--查询代理体现记录 运营 -->
+  <select id="getWithdrawRecordList" parameterType="WithdrawAuditReq"  resultType="WithdrawAuditResp">
+ 	SELECT wr.*, ca.balance, ca.delayAmt, u.mobile,u.realName ,u.invitationCode
+	FROM ha_withdraw_record wr
+	INNER JOIN ha_user_party up ON up.partyId = wr.partyId AND up.userType = 2
+	INNER JOIN ha_user u ON u.id = up.userId
+	LEFT JOIN ha_cash_account ca ON wr.partyId = ca.partyId
+	order by wr.crtTime desc
+  </select>
+  
+  <!--查询代理体现记录 -->
+  <select id="getWithdrawRecordListNum" parameterType="WithdrawAuditReq"  resultType="WithdrawAuditResp">
+ 	select IFNULL(sum(IFNULL(hwr.amt,0)),0)
+    from ha_withdraw_record hwr 
+  </select>
 </mapper>

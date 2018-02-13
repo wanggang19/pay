@@ -86,6 +86,7 @@ public class WithdrawServiceImpl implements WithdrawService {
 	}
 
 	@Override
+	@Transactional
 	public WithdrawResp withdraw(AuditWithdrawReq auditWithdrawReq) throws HaBizException {
 		WithdrawResp withdrawResp = new WithdrawResp();
 		if(WithdrawStatuses.isLegalAuditStatus(auditWithdrawReq.getStatus())){
@@ -175,6 +176,28 @@ public class WithdrawServiceImpl implements WithdrawService {
 	@Override
 	public BigDecimal queryAgentWithdrawRecordListNum(Map<String, Object> paramMap) {
 		return withdrawRecordMapper.queryAgentWithdrawRecordListNum(paramMap);
+	}
+
+	/**
+	 * TODO
+	 * @param withdrawRecord
+	 * @return 
+	 * @see com.hongao.pay.service.WithdrawService#queryWithdrawRecordList(com.hongao.pay.model.WithdrawRecord) 
+	 */ 
+	@Override
+	public List<WithdrawRecord> getWithdrawRecordList(WithdrawRecord withdrawRecord) {
+		return withdrawRecordMapper.getWithdrawRecordList(withdrawRecord);
+	}
+
+	/**
+	 * TODO
+	 * @param withdrawRecord
+	 * @return 
+	 * @see com.hongao.pay.service.WithdrawService#queryWithdrawRecordListNum(com.hongao.pay.model.WithdrawRecord) 
+	 */ 
+	@Override
+	public Integer getWithdrawRecordListNum(WithdrawRecord withdrawRecord) {
+		return withdrawRecordMapper.getWithdrawRecordListNum(withdrawRecord);
 	}
 
 }

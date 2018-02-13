@@ -71,4 +71,18 @@ public interface WithdrawService {
 	* @return 
 	*/  
 	BigDecimal queryAgentWithdrawRecordListNum(Map<String, Object> paramMap);
+
+	/**  
+	* TODO  
+	* @param withdrawRecord
+	* @return 
+	*/  
+	List<WithdrawRecord> getWithdrawRecordList(WithdrawRecord withdrawRecord);
+
+	/**  
+	* TODO  
+	* @param withdrawRecord
+	* @return 
+	*/  
+	Integer getWithdrawRecordListNum(WithdrawRecord withdrawRecord);
 }
