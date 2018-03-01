@@ -14,6 +14,7 @@ import com.hongao.pay.dto.PayResp;
 import com.hongao.pay.model.PayRecord;
 import com.hongao.pay.processor.PayProcessor;
 import com.hongao.pay.service.PayService;
+import com.hongao.pay.service.RechargeWhiteListService;
 import com.hongao.utils.bean.BeanUtilsExt;
 
 /**
@@ -34,6 +35,9 @@ public class PayServiceImpl implements PayService {
 
 	@Autowired
 	private PayRecordMapper payRecordMapper; 
+	
+	@Autowired
+	private RechargeWhiteListService rwls;
 	
 	@Override
 	@Transactional
@@ -56,6 +60,9 @@ public class PayServiceImpl implements PayService {
 			
 		payRecordMapper.addPayRecord(payRecord);
 		
+		if(rwls.hit(payReq.getPartyId())){
+			payReq.setAmt(0.01f);
+		}
 		return payProcessor.process(payReq);
 	}
 
